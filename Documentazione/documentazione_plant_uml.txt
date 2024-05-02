@@ -1,0 +1,32 @@
+@startuml
+'commento
+
+package GeometryLibrary <<Folder>>
+{
+class Triangle{
++ Vertices : Matrix3d
++ Triangle(Vertices)
++ double computeArea()
+}
+
+class Polygons
+{
++ Vertices : MatrixXd
++ ListPolygons : vector<vector<unsigned int>>
++ v<v<v<unsigned int>>> computeTriangulation()
++ vector<double> computeArea()
++ void gedimInterface(v<v<unsigned int>> &)
+}
+}
+
+package Gedim <<Frame>>
+{
+}
+
+note "Gedim is an external library" as GenimN
+GedimN .right. Gedim
+
+Gedim ..> Polygons::gedimInterface
+
+Triangle "many" ..o "1" Polygons : is made up
+@enduml
